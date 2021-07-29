@@ -1,1 +1,3 @@
-# homebrew-asar
+# homebrew-alttpr
+
+* [asar](https://github.com/RPGHacker/asar)
