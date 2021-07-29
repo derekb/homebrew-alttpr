@@ -10,6 +10,8 @@ class Z3randomizer < Formula
 
   bottle :unneeded
 
+  depends_on "derekb/alttpr/asar"
+
   def install
     mv "z3r.sh", "z3r"
     bin.install "LTTP_RND_GeneralBugfixes.asm"
