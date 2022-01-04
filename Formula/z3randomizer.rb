@@ -4,18 +4,23 @@
 class Z3randomizer < Formula
   desc "Zelda 3 Randomizer Template ASM"
   homepage "https://github.com/KatDevsGames/z3randomizer"
-  url "https://github.com/derekb/z3randomizer/archive/refs/tags/v31.0.5-brewtap.tar.gz"
-  sha256 "d3dc9bee7e76a0c95ad0ea0f262a03a37b7ee1f00d9e03fe825c88bfbc5d6283"
+  url "https://github.com/derekb/z3randomizer/archive/refs/tags/v31.0.5-brewtap-rev4.tar.gz"
+  sha256 "0d262361ac0194c06a4ddcdb1e76e5011c706926cec7fbdaeb4bb881528890b4"
   license "MIT"
 
-  bottle :unneeded
+  # bottle :unneeded
 
+  depends_on "coreutils"   
   depends_on "derekb/alttpr/asar"
 
   def install
-    mv "z3r.sh", "z3r"
-    bin.install "LTTP_RND_GeneralBugfixes.asm"
-    bin.install "z3r"
+    z3r = "z3r"
+    mv "z3r.sh", z3r
+    files = Dir["*"]
+    libexec.install files
+    # z3r needs to live in the same directory 
+    # as all the patches.
+    bin.install_symlink libexec/"z3r"
   end
 
   test do
@@ -29,6 +34,6 @@ class Z3randomizer < Formula
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system "#{bin}/program", "do", "something"`.
     output = shell_output("${bin}/z3r")
-    assert_match output, "Usage: z3r input_path output_path"
+    assert_match output, "Usage: z3r <input_path> [new_output_path]"
   end
 end
