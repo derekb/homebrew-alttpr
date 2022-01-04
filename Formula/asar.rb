@@ -1,8 +1,8 @@
 class Asar < Formula
     desc "(Now) official repository of the SNES assembler Asar, originally created by Alcaro"
     homepage "https://github.com/RPGHacker/asar"
-    url "https://github.com/RPGHacker/asar/archive/refs/tags/v1.81.tar.gz"
-    sha256 "86af29abc2773fa6cfdbfb66f70e8d2ef1afa645f6e7653e07be198ee0e6cd47"
+    url "https://github.com/RPGHacker/asar/archive/refs/tags/v1.71.tar.gz"
+    sha256 "932e8c4d12d7590e897bc88698d521872f85b8770d713e6351e5a6c8ef8e2896"
     license "LGPL-3.0-or-later"
   
     depends_on "cmake" => :build
